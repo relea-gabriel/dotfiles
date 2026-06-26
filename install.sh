@@ -18,6 +18,12 @@ mv switcher "$HOME/.local/bin/switcher"
 echo "Installing awsp..."
 npm install -g awsp --prefix "$HOME/.local"
 
+# Install fzf (Fuzzy Finder)
+echo "Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+"$HOME/.fzf/install" --bin
+cp "$HOME/.fzf/bin/fzf" "$HOME/.local/bin/"
+
 # 4. Force overwrite default workspace files with our custom dotfiles
 DOTFILES_DIR="$HOME/.config/coderv2/dotfiles"
 echo "Applying custom configurations..."
