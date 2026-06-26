@@ -1,0 +1,11 @@
+# Move AWS and Kubernetes to the right side of the prompt
+right_format = """$aws$kubernetes"""
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+symbol = '☁️ '
+style = 'bold yellow'
+
+[kubernetes]
+format = 'via [⛵ $context \($namespace\)](bold cyan) '
+disabled = false
