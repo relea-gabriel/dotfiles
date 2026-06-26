@@ -14,6 +14,10 @@ curl -L -o switcher https://github.com/danielfoehrKn/kubeswitch/releases/latest/
 chmod +x switcher
 mv switcher "$HOME/.local/bin/switcher"
 
+# Install the original awsp package
+echo "Installing awsp..."
+npm install -g awsp --prefix "$HOME/.local"
+
 # 4. Force overwrite default workspace files with our custom dotfiles
 DOTFILES_DIR="$HOME/.config/coderv2/dotfiles"
 echo "Applying custom configurations..."
