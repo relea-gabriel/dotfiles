@@ -58,5 +58,10 @@ init-project() {
 # Enable fzf history search and interactive keybindings
 eval "$(fzf --bash)"
 
+# Load local, private environment variables if they exist
+if [ -f "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
+fi
+
 # One-command ECR login (Run this AFTER aws sso login)
 alias ecr-login="aws ecr get-login-password --region eu-west-1 | docker login -u AWS --password-stdin 733996454592.dkr.ecr.eu-west-1.amazonaws.com"
