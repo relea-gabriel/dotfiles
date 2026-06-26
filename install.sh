@@ -14,7 +14,11 @@ curl -L -o switcher https://github.com/danielfoehrKn/kubeswitch/releases/latest/
 chmod +x switcher
 mv switcher "$HOME/.local/bin/switcher"
 
-# 4. Copy the Starship config file to the proper directory
-cp starship.toml "$HOME/.config/starship.toml"
+# 4. Force overwrite default workspace files with our custom dotfiles
+DOTFILES_DIR="$HOME/.config/coderv2/dotfiles"
+echo "Applying custom configurations..."
+cp -f "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+cp -f "$DOTFILES_DIR/.profile" "$HOME/.profile"
+cp -f "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 
 echo "Workspace setup complete!"

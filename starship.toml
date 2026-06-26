@@ -1,10 +1,19 @@
-# Move AWS and Kubernetes to the right side of the prompt
-right_format = """$aws$kubernetes"""
+# Explicitly define the layout: Directory -> Fill spaces -> AWS/Kube -> New line -> Prompt character
+format = """$directory$fill$aws$kubernetes$line_break$character"""
+
+[directory]
+style = "bold blue"
+truncate_to_repo = false
+
+[fill]
+symbol = ' '
 
 [aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
+# Removed the region variable so it only prints the profile name
+format = 'on [$symbol$profile]($style) '
 symbol = '☁️ '
 style = 'bold yellow'
+disabled = false
 
 [kubernetes]
 format = 'via [⛵ $context \($namespace\)](bold cyan) '
